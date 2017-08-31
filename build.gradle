@@ -1,0 +1,41 @@
+group 'com.zhuke.sourcecode'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.5.RELEASE")
+    }
+}
+
+
+jar {
+    baseName = 'sourcecode'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter:1.5.6.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.5.6.RELEASE")
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.10.RELEASE'
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.4'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.43'
+
+
+    testCompile group: 'org.testng', name: 'testng', version: '6.11'
+}
